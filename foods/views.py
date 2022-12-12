@@ -1,9 +1,7 @@
 from rest_framework import permissions, status
-
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.generics import get_object_or_404
-from users.models import User
 from foods.models import Food, FoodComment
 from foods.serializers import FoodSerializer, FilteringFoodSerializer, FoodCommentSerializer, FoodCommentCreateSerializer
 from foods.collaborative_filtering import collaborative_filtering

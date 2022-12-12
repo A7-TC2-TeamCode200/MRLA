@@ -65,8 +65,7 @@ class CommunityCommentSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = CommunityComment
-        fields = ("id", "community_id", "community_content",
-                  "comment", "created_at", "updated_at")
+        fields = ("id", "community_id", "community_content", "comment", "created_at", "updated_at")
 
 
 # 커뮤니티 게시글 조회

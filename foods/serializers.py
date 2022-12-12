@@ -14,21 +14,20 @@ class FoodSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
-# 추천 메뉴 리스트
-class FilteringFoodSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Food
-        fields = ("food_id", "menu", "image", "major_category")
-
-        
 class FoodCommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = FoodComment
         fields = ("menu", "comment", "created_at", "updated_at")
 
-        
+
 class FoodCommentCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = FoodComment
         fields = ("comment",)
 
+
+# 추천 메뉴 리스트
+class FilteringFoodSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Food
+        fields = ("food_id", "menu", "image")

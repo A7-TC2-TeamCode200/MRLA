@@ -41,9 +41,9 @@ class User(AbstractBaseUser):
     nickname = models.CharField(verbose_name="닉네임", default="", max_length=20, unique=True, blank=True, error_messages={"unique": "이미 존재하는 닉네임입니다."})
     age = models.IntegerField(verbose_name="나이", null=True)
     gender = models.BooleanField(verbose_name="성별", null=True)
-    major_category = models.CharField(verbose_name="선호하는 음식 종류", max_length=20)
+    major_category = models.CharField(verbose_name="선호하는 음식 종류", max_length=20, default="")
 
-    following = models.ManyToManyField('self', verbose_name="팔로잉", symmetrical=False, blank=True, related_name='follower')
+    following = models.ManyToManyField("self", verbose_name="팔로잉", symmetrical=False, blank=True, related_name="follower")
 
     objects = UserManager()
 

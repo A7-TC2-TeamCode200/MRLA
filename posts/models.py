@@ -22,7 +22,8 @@ class ServiceComment(models.Model):
 
     def __str__(self):
         return str(f"{self.service} / {self.comment}")
-    
+
+
 class Community(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="community_user")
     title = models.CharField(verbose_name="커뮤니티 게시글 제목", max_length=50)
@@ -35,7 +36,7 @@ class Community(models.Model):
 
     def __str__(self):
         return str(f"{self.user} / {self.title}")
-    
+
     def get_absolute_url(self):
         return reverse("community_comment_Detail_view", kwargs={"community_id": self.id})
 

@@ -1,6 +1,7 @@
 import re
-from rest_framework import serializers
 from users.models import User
+from rest_framework import serializers
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 
 
 # 회원 가입/수정(정규식 적용)
@@ -14,6 +15,7 @@ class UserSerializer(serializers.ModelSerializer):
             "email": {"error_messages": {"required": "이메일을 입력해 주세요.", "blank": "이메일을 입력해 주세요."}},
             "nickname": {"error_messages": {"required": "닉네임을 입력해 주세요.", "blank": "닉네임을 입력해 주세요."}},
             "password": {"write_only": True, "error_messages": {"required": "비밀번호를 입력해 주세요.", "blank": "비밀번호를 입력해 주세요."}},
+            "major_category": {"error_messages": {"required": "카테고리를 입력해 주세요.", "blank": "카테고리를 입력해 주세요."}},
         }
 
     def validate(self, validated_data):
@@ -58,7 +60,7 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 # 토큰 정보 커스텀
-class TokenObtainPairSerializer:
+class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
     @classmethod
     def get_token(cls, user):
         token = super().get_token(user)
