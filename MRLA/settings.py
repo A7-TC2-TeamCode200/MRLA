@@ -6,7 +6,7 @@ import environ
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     "backend",
@@ -77,7 +77,7 @@ ROOT_URLCONF = "MRLA.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": ['templates',],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [

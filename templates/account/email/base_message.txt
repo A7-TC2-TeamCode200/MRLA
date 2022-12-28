@@ -1,0 +1,7 @@
+{% load i18n %}{% autoescape off %}{% blocktrans with site_name=current_site.name %}안녕하세요 메추리알 입니다!{% endblocktrans %}
+
+{% block content %}{% endblock %}
+
+{% blocktrans with site_name=current_site.name site_domain=current_site.domain %}메추리알 서비스를 이용해주셔서 항상 감사합니다!
+{{ site_domain }}{% endblocktrans %}
+{% endautoescape %}

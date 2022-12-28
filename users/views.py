@@ -23,6 +23,7 @@ class UserView(APIView):
         serializer = UserSerializer(data=request.data)
         print(request.data)
         if serializer.is_valid():
+            serializer.is_active = False
             serializer.save()
             return Response({"message": "가입완료!"}, status=status.HTTP_201_CREATED)
         else:
