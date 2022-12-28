@@ -30,7 +30,7 @@ class UserSerializer(serializers.ModelSerializer):
 
         # 비밀번호 유효성 체크
         if not re.search(password_reg, str(password)):
-            raise serializers.ValidationError(detail={"password": "최소 한 개의 영문자와 숫자를 포함해 5글자 이상으로 만들어 주세요."})
+            raise serializers.ValidationError(detail={"password": "비밀번호에 최소 한 개의 영문자와 숫자를 포함해 5글자 이상으로 만들어 주세요."})
         elif password != password_check:
             raise serializers.ValidationError(detail={"password": "동일한 비밀번호를 입력해 주세요."})
 
